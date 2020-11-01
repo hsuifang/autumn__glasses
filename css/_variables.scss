@@ -1,0 +1,38 @@
+// width
+$maxWidth: 1110px;
+
+// color
+//
+$primary: #AA0601;
+$secondary: #650300;
+$dark: #111619;
+$white: #fff;
+$caption: #707070;
+
+$themes: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'dark': $dark,
+  'white': $white,
+  'caption': $caption
+);
+
+
+// spaceing
+//
+$sizes: (
+  'xs': 1rem, // 16px
+  'sm': 1.5rem, // 24px
+  'md': 2rem, // 32
+  'lg': 2.25rem, // 36
+  'xl': 3rem, // 48
+  'xxl': 4rem
+);
+
+// gutter
+$gutter: 15px;
+
+// 14 20 30
+
+// <!-- 14 20 16 24 30 36 48 64 -->
+// 0.875 1.25 1.5  1.875 2.25 3 4

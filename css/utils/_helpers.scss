@@ -1,0 +1,73 @@
+// color
+// ------------------
+@each $key, $val in $themes {
+  .bg-#{$key} {
+    background-color: $val !important;
+  }
+  .#{$key} {
+    color: $val !important;
+  }
+}
+
+
+// spacing
+// ------------------
+@each $key, $val in $sizes {
+  .mr-#{$key} {
+    margin-right: $val;
+  }
+  .mb-#{$key} {
+    margin-bottom: $val;
+  }
+  .pb-#{$key} {
+    padding-bottom: $val;
+  }
+  .py-#{$key} {
+    padding-top: $val;
+    padding-bottom: $val;
+  }
+  .px-#{$key} {
+    padding-left: $val;
+    padding-right: $val;
+  }
+  .txt-#{$key} {
+    font-size: $val;
+  }
+}
+.mx-auto {
+  margin-right:auto;
+  margin-left: auto;
+}
+
+// width
+// ------------------
+@for $i from 1 through 5 {
+  .w-#{$i*25}{
+    width: $i*25%;
+  }
+}
+
+// style - font
+// ------------------
+.italic {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}
+.align-r {
+  text-align: right;
+}
+.align-c {
+  text-align: center;
+}
+
+// other
+// ----------------------------------------------------------------
+.d-none {
+  display: none;
+}
+
+.h-100 {
+  height: 100％;
+}

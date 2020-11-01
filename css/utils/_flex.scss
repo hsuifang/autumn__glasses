@@ -1,0 +1,25 @@
+.d-flex {
+  display: flex;
+}
+.d-flexSet {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fxd-c {
+  flex-direction: column;
+}
+.fxd-rr {
+  flex-direction: row-reverse;
+}
+.fx-jcc {
+  justify-content: center;
+}
+.fx-jsb {
+  justify-content: space-between;
+}
+.fx-alc {
+  align-items: center
+}
+.fx-alfe {
+  align-items: flex-end
+}
