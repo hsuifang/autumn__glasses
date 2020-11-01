@@ -6,6 +6,31 @@
 @import "utils/helpers";
 @import "utils/flex";
 
+// @mixin
+@mixin pc {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin bgPhone {
+  @media (max-width: 568px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 414px) {
+    @content;
+  }
+}
+
 // components
 .intro {
   padding: 0 30px;
@@ -25,24 +50,17 @@
     font-size: 16px;
     line-height: 24px;
   }
-}
-.list {
-  display: flex;
-  margin-bottom: 32px;
-  &__img {
-    width: 635px;
-  }
-  &__content {
-    display: flex;
-    align-items: center;
-    color: $primary;
-    padding: 0 30px;
-    &__icon {
-      margin-right: 8px;
+  @include pad {
+    padding: 20px 23px;
+    &__img {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
     }
-    &__discript {
-      font-size: 48px;
-      line-height: 72px;
+    &__title {
+      font-size: 20px;
+      line-height: 30px;
+      margin-bottom: 8px;
     }
   }
 }
@@ -70,7 +88,6 @@
     color: $caption
   }
 }
-
 .btn {
   display: block;
   background-color: $primary;
@@ -85,17 +102,99 @@
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
-// layout page
+// page
+// ---- 
+.p-list {
+  display: flex;
+  margin-bottom: 32px;
+  &__img {
+    width: 635px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    color: $primary;
+    padding: 0 30px;
+    &__icon {
+      margin-right: 8px;
+    }
+    &__discript {
+      font-size: 48px;
+      line-height: 72px;
+    }
+    @include bgPhone {
+      padding-right: 0;
+      padding-left: 20px;
+      &__icon {
+        width: 50%;
+      }
+      &__discript {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+  }
+  @include pc {
+    &__img {
+      width: 65%;
+    }
+    &__content__discript {
+      font-size: 40px;
+      line-height: 1.5;
+    }
+  }
+  @include pad {
+    margin-bottom: 8px;
+    &__img {
+      width: 60%
+    }
+    &__content {
+      &__discript {
+        font-size: 28px;
+        line-height: 42px;
+      }
+    }
+  }
+  @include mobile {
+    &__img {
+      width: 100%;
+    }
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $white;
+      padding: 0;
+    }
+  }
+}
+// layout
 .container {
   margin: 0 auto;
   width: 100%; 
   max-width: $maxWidth;
   padding: 64px 0 80px;
+  @include pad {
+    padding: 32px 40px;
+  }
+  @include mobile {
+    padding: 32px 15px;
+  }
 }
 .subtitle {
   text-align: center;
   color: $secondary;
   margin-bottom: 60px;
+  @include pad {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  @include mobile {  
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 48px;
+  }
 }
 // layout
 .bar {
@@ -104,12 +203,35 @@
   align-items: center;
   padding: 30px 88px;
   background-color: $primary;
+  @include pc { padding: 30px 60px; }
+  @include pad { padding: 30px 40px; }
+  @include mobile {
+    padding: 0;
+    flex-direction: column;
+  }
+  &__logo{
+    @include mobile { padding: 10px; }
+  }
   &__nav {
     display: flex;
     justify-content: space-between;
+    @include mobile {
+      width: 100%;
+      flex-wrap: wrap;
+    }
   }
   &__nav__item {
     margin-left: 64px;
+    @include pad { 
+      margin-left: 40px;
+    }
+    @include mobile {
+      border: 1px solid $white;
+      width: 50%;
+      padding: 8px;
+      margin-left: 0;
+      text-align: center;
+    }
     a {
       color: $white;
       font-size: 20px;
@@ -123,18 +245,37 @@
   height: 840px;
   display: flex;
   align-items: center;
+  @include mobile {
+    height: 394px;
+    background-image: url('https://hexschool.github.io/webLayoutTraining1st/week3/banner-sm.png');
+  }
   &__title {
     font-size: 64px;
     line-height: 96px;
     color: $secondary;
     font-weight: bold;
+    @include pad {
+      font-size: 48px;
+      line-height: 67px;
+    }
+    @include mobile {
+      font-size: 32px;
+      line-height: 45px;
+    }
   }
   &__subtitle {
     font-size: 36px;
     line-height: 54px;
     color: $secondary;
+    @include pad {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    @include mobile {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
-
 }
 .introduction {
   background-color: rgba($primary, 0.05);
@@ -154,12 +295,15 @@
   &__form {
     margin: 0 auto;
     padding: 0 190px;
+    @include pad { padding: 0 120px; }
+    @include mobile { padding: 0; }
     label {
       line-height: 21px;
     }
   }
   &__form__topic {
     margin-bottom: 16px;
+    @include pad { margin-bottom: 8px; }
     label {
       display: block;
       width: 100%; 
@@ -185,6 +329,8 @@
   }
   .contact-icon {
     width: 48px;
+    @include pad { width: 24px; }
+    @include mobile { width: 24px; }
   }
   .contact-list {
     margin-bottom: 8px;
@@ -196,60 +342,7 @@
       color: white;
       font-size: 36px;
     }
-  }
-}
-
-
-// custom
-@media (max-width: 900px) {
-  .list {
-    &__img {
-      width: 65%;
-    }
-    &__content__discript {
-      font-size: 40px;
-      line-height: 1.5;
-    }
-  }
-}
-// tablet: md
-@media (max-width: 768px) {
-  h2 {
-    font-size: 32px;
-    line-height: 48px;
-  }
-  .bar {
-    padding: 30px 39px;
-    &__nav__item {
-      margin-left: 40px;
-    }
-  }
-  .container {
-    padding: 32px 40px;
-  }
-  .masthead {
-    &__title {
-      font-size: 48px;
-      line-height: 67px;
-    }
-    &__subtitle {
-      font-size: 20px;
-      line-height: 28px;
-    }
-  }
-  .contact {
-    &__form {
-      padding: 0 120px;
-    }
-    &__form__topic {
-      margin-bottom: 8px;
-    }
-  }
-  .footer {
-    .contact-icon {
-      width: 24px;
-    }
-    .contact-list {
+    @include pad { 
       img {
         margin-right: 8px;
       }
@@ -257,7 +350,18 @@
         font-size: 20px;
       }
     }
-    .policy {
+    @include mobile {
+      img {
+        width: 20px;
+        margin-right: 5px;
+      }
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+  .policy {
+    @include pad {
       ul li {
         padding-top: 8px;
       }
@@ -269,165 +373,57 @@
       }
     }
   }
+}
+
+// tablet: md
+@media (max-width: 768px) {
   // helpers
   @for $i from 1 through 4 {
-    .w-md-#{$i*25}{
+    .pad-w-#{$i*25}{
       width: $i*25%;
     }
   }
-  .fxd-md-r {
+  .pad-fxd-r {
     flex-direction: row;
   }
-  .d-md-bk {
+  .pad-d-bk {
     display: block;
   }
-  .d-md-none {
+  .pad-d-none{
     display: none;
   }
-  .py-md-0 {
+  .pad-py-0 {
     padding-top: 0;
     padding-bottom: 0;
   }
-  .mb-md-md {
+  .pad-mb-md {
     margin-bottom: 32px;
-  }
-  // components
-  .intro {
-    padding: 20px 23px;
-    &__img {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 16px;
-    }
-    &__title {
-      font-size: 20px;
-      line-height: 30px;
-      margin-bottom: 8px;
-    }
-  }
-  .list {
-    margin-bottom: 8px;
-    &__img {
-      width: 60%
-    }
-    &__content {
-      &__discript {
-        font-size: 28px;
-        line-height: 42px;
-      }
-    }
-  }
-}
-// custom
-@media (max-width: 600px) {
-  .list__content {
-    padding-right: 0;
-    padding-left: 20px;
-    &__icon {
-      width: 50%;
-    }
-    &__discript {
-      font-size: 24px;
-      line-height: 24px;
-    }
   }
 }
 // phone: sm
 @media (max-width: 414px) {
-  h2 {
-    font-size: 24px;
-    line-height: 48px;
-  }
-  .subtitle {
-    margin-bottom: 20px;
-  }
-  .bar {
-    padding: 0;
-    flex-direction:column;
-    &__logo{
-      padding: 10px;
-    }
-    &__nav {
-      width: 100%;
-      flex-wrap: wrap;
-    }
-    &__nav__item {
-      border: 1px solid $white;
-      width: 50%;
-      padding: 8px;
-      margin-left: 0;
-      text-align: center;
-    }
-  }
-  .container {
-    padding: 32px 15px;
-  }
-  .masthead {
-    height: 394px;
-    &__title {
-      font-size: 32px;
-      line-height: 45px;
-    }
-    &__subtitle {
-      font-size: 16px;
-      line-height: 22px;
-    }
-  }
-  .contact__form {
-    padding: 0;
-  }
-  .footer {
-    .contact-icon {
-      width: 24px;
-    }
-    .contact-list {
-      img {
-        width: 20px;
-        margin-right: 5px;
-      }
-      a {
-        font-size: 16px;
-      }
-    }
-  }
-
-  //
+  // width
   @for $i from 1 through 4 {
-    .w-sm-#{$i*25} {
+    .mobile-w-#{$i*25} {
       width: $i*25%;
     }
   }
-  .d-sm-bk {
+  .mobile-d-bk {
     display: block;
   }
-  .d-sm-none {
+  .mobile-d-none {
     display: none;
   }
-  .fxd-sm-c {
+  .mobile-fxd-c {
     flex-direction: column;
   }
-  .fx-sm-alfs {
+  .mobile-fx-alfs {
     align-items: flex-start;
   }
-  .mr-sm-sm {
+  .mobile-mr-sm {
     margin-right: 24px;
   }
-  .mb-sm-md {
+  .mobile-mb-md {
     margin-bottom: 24px;
-  }
-  //
-  .list {
-    margin-bottom: 8px;
-    &__img {
-      width: 100%;
-    }
-    &__content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: $white;
-      padding: 0;
-    }
   }
 }

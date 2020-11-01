@@ -20,13 +20,28 @@ $themes: (
 
 // spaceing
 //
+// $sizes: (
+//   'xs': 1rem, // 16px
+//   'sm': 1.5rem, // 24px
+//   'md': 2rem, // 32
+//   'lg': 2.25rem, // 36
+//   'xl': 3rem, // 48
+//   'xxl': 4rem
+// );
+$xs: 16px;
+$sm: 24px;
+$md: 32px;
+$lg: 36px;
+$xl: 48px;
+$xxl: 64px;
+
 $sizes: (
-  'xs': 1rem, // 16px
-  'sm': 1.5rem, // 24px
-  'md': 2rem, // 32
-  'lg': 2.25rem, // 36
-  'xl': 3rem, // 48
-  'xxl': 4rem
+  'xs': $xs, // 16px
+  'sm': $sm, // 24px
+  'md': $md, // 32
+  'lg': $lg, // 36
+  'xl': $xl, // 48
+  'xxl': $xxl
 );
 
 // gutter
