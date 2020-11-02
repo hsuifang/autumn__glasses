@@ -4,6 +4,14 @@
 .d-flexSet {
   display: flex;
   flex-wrap: wrap;
+  &__gutter {
+    padding-left: $gutter;
+    padding-right: $gutter;
+    @include mobile {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 .fxd-c {
   flex-direction: column;

@@ -1,5 +1,5 @@
 // width
-$maxWidth: 1110px;
+$maxWidth: 1140px;
 
 // color
 //
@@ -36,6 +36,7 @@ $xl: 48px;
 $xxl: 64px;
 
 $sizes: (
+  '0': 0,
   'xs': $xs, // 16px
   'sm': $sm, // 24px
   'md': $md, // 32
