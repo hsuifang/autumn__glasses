@@ -230,6 +230,9 @@
       font-size: 20px;
       line-height: 30px;
     }
+    &:hover {
+      border-bottom: 2px solid $white;
+    }
   }
 }
 .masthead, .introduction, .product, .co-brand, .recommend, .contact {
@@ -292,8 +295,23 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  &__productBrand {
-    // @todo
+  .co-product__caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($white, 0.5);
+    width: 100%;
+    height: 100%;
+    &__content {
+      font-size: 72px;
+      line-height: 108px;
+      color: $primary;
+      font-weight: bold;
+      @include pad {
+        font-size: 32px;
+        line-height: 25px;
+      }
+    }
   }
 }
 .recommend {
@@ -322,11 +340,13 @@
       border: 1px solid #000;
       width: 100%;
       padding: 14px 16px;
+      outline: none;
     }
     textarea{
       border: 1px solid #000;
       width: 100%;
       padding: 14px 16px;
+      outline: none;
     }
   }
 }
@@ -342,6 +362,9 @@
   }
   .contact-icon {
     width: 48px;
+    &:hover { 
+      opacity: 0.9;
+    }
     @include pad { width: 24px; }
   }
   .contact-list {

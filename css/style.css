@@ -366,6 +366,10 @@ a {
   height: 100％;
 }
 
+.link:hover {
+  border-bottom: 1px solid #fff;
+}
+
 .d-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -752,6 +756,10 @@ a {
   line-height: 30px;
 }
 
+.bar__nav__item:hover {
+  border-bottom: 2px solid #fff;
+}
+
 .masthead, .introduction, .product, .co-brand, .recommend, .contact {
   padding-top: 64px;
   padding-bottom: 80px;
@@ -847,6 +855,29 @@ a {
   background-size: cover;
 }
 
+.co-brand .co-product__caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.co-brand .co-product__caption__content {
+  font-size: 72px;
+  line-height: 108px;
+  color: #AA0601;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .co-brand .co-product__caption__content {
+    font-size: 32px;
+    line-height: 25px;
+  }
+}
+
 .recommend {
   background-color: rgba(170, 6, 1, 0.2);
 }
@@ -896,12 +927,14 @@ a {
   border: 1px solid #000;
   width: 100%;
   padding: 14px 16px;
+  outline: none;
 }
 
 .contact__form__topic textarea {
   border: 1px solid #000;
   width: 100%;
   padding: 14px 16px;
+  outline: none;
 }
 
 .footer {
@@ -924,6 +957,10 @@ a {
 
 .footer .contact-icon {
   width: 48px;
+}
+
+.footer .contact-icon:hover {
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
